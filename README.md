@@ -3,11 +3,11 @@
 Dotfiles
 ===
 
-### Terminal Packages
+### Notable Packages
 
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* [dotmatrix](https://github.com/hashrocket/dotmatrix)
-* [hybrid-material-theme](https://github.com/kristijanhusak/vim-hybrid-material)
+* **Theming:** [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* **Tooling** [dotmatrix](https://github.com/hashrocket/dotmatrix)
+* **Editor Theme:** [hybrid-material-theme](https://github.com/kristijanhusak/vim-hybrid-material)
 
 
 ### Installation
@@ -18,6 +18,7 @@ Install the above packages first, then symlink the dotfiles to the home director
 ln -sf .zshrc.local ~/.zshrc.local
 ln -sf .vimc.local ~/.vimrc.local
 ln -sf .tmux.conf.local ~/.tmux.conf.local
+ln -sf .vimbundle.local ~/.vimbundle.local
 ```
 
 

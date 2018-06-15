@@ -27,7 +27,6 @@ let g:ale_fixers.javascript = ['prettier']
 let g:ale_fixers.crystal = ['ameba']
 set runtimepath^=~/.vim/bundle/ag
 
-
 set hlsearch
 set incsearch
 nmap <silent> // :nohlsearch<CR>
