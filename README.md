@@ -13,7 +13,7 @@ Dotfiles
 
 ### Installation
 
-Install the above packages first, then symlink the dotfiles to the home directory.
+Install the above packages first, then symlink the dotfiles to the home directory. Note: this process depends on using dotmatix as part of your tooling; you'll get unexpected results if not.
 
 ```ruby
 ln -sf .zshrc.local ~/.zshrc.local
