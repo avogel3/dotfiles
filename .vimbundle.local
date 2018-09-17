@@ -1,4 +1,3 @@
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'tomlion/vim-solidity'
 Plug 'itchyny/lightline.vim'
-
+Plug 'jdkanani/vim-material-theme'

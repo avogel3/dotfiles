@@ -5,9 +5,10 @@ Dotfiles
 
 ### Notable Packages
 
-* **Theming:** [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+* **Shell:** [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * **Tooling** [dotmatrix](https://github.com/hashrocket/dotmatrix)
-* **Editor Theme:** [hybrid-material-theme](https://github.com/kristijanhusak/vim-hybrid-material)
+* **Editor Theme:** `material-design.itermcolors` - Not sure where I got this
+* **Prompt:** [pure](https://github.com/sindresorhus/pure)
 
 
 ### Installation

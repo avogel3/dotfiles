@@ -1,6 +1,3 @@
-set background=dark
-colorscheme hybrid_material
-
 noremap <c-h> gT
 noremap <c-l> gt
 set nu

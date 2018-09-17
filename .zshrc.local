@@ -1,16 +1,17 @@
 eval "$(/Users/avogel/hashrocket/dotmatrix/hr/bin/hr init -)"
 
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="af-magic" 
-
+ZSH_THEME="" #ZSH_THEME="af-magic" 
 plugins=(bundler rails ruby git)
-
 source $ZSH/oh-my-zsh.sh
+
+# Pure Prompt
+autoload -U promptinit; promptinit
+prompt pure
 
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -18,12 +19,18 @@ export NVM_DIR="$HOME/.nvm"
 # Set Android home to Android Studio Dir (installed from package, not brew)
 export ANDROID_HOME=/Users/avogel/Library/Android/sdk
 
-# Set Encodings for Fastlane Android
+# Fastlane Android Encoding
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Cargo config 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
-# Postgres 10
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/10/bin"
+export GOPATH="$HOME/Projects/go"
+export PATH="$PATH:$GOPATH/bin"
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+
+alias gsb="git status -sb"
