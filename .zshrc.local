@@ -30,3 +30,5 @@ export PATH="$PATH:$GOPATH/bin"
 alias gst="git status"
 alias gsb="git status -sb"
 alias cat="bat" # Bat `brew install bat`
+
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
