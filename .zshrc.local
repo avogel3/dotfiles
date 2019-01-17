@@ -32,3 +32,5 @@ alias gsb="git status -sb"
 alias cat="bat" # Bat `brew install bat`
 
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
