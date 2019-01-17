@@ -28,4 +28,5 @@ export PATH="$PATH:$GOPATH/bin"
 
 . $HOME/.asdf/completions/asdf.bash
 
+alias gst="git status"
 alias gsb="git status -sb"
