@@ -5,17 +5,22 @@ Dotfiles
 
 ### Notable Packages
 
-* **Shell:** [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-* **Tooling** [dotmatrix](https://github.com/hashrocket/dotmatrix)
-* **Editor Theme:** `material-design.itermcolors` - Not sure where I got this
+* **Shell:** zsh
+* **Shell Syntax Highlighting:** [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * **Prompt:** [pure](https://github.com/sindresorhus/pure)
+* **Tooling** [dotmatrix](https://github.com/hashrocket/dotmatrix)
+* **iTerm Theme:** [iterm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
 
 
 ### Installation
 
-Install the above packages first, then symlink the dotfiles to the home directory. Note: this process depends on using dotmatix as part of your tooling; you'll get unexpected results if not.
+```sh
+brew install zsh
+chsh -s /bin/zsh
 
-```ruby
+# Next, follow install instructions for Pure (link above)
+
+# Symlink dotfiles
 ln -sf .zshrc.local ~/.zshrc.local
 ln -sf .vimc.local ~/.vimrc.local
 ln -sf .tmux.conf.local ~/.tmux.conf.local
