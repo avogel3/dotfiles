@@ -1,9 +1,5 @@
 eval "$(/Users/avogel/hashrocket/dotmatrix/hr/bin/hr init -)"
 
-# Pure Prompt
-autoload -U promptinit; promptinit
-prompt pure
-
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # Set Android home to Android Studio Dir (installed from package, not brew)
@@ -15,20 +11,23 @@ export LANG=en_US.UTF-8
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
+# GoLang
 export GOPATH="$HOME/Projects/go"
 export PATH="$PATH:$GOPATH/bin"
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# Aliases
 alias ga="git add"
 alias gst="git status"
 alias gsb="git status -sb"
-alias cat="bat" # Bat `brew install bat`
 alias rdm="bundle exec rails db:migrate"
 
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+# Starship Prompt
+eval "$(starship init zsh)"
+# Command Syntax Highlighting
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
