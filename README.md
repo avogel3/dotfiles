@@ -20,11 +20,12 @@ Install the latest version of ZSH from homebrew
 brew install zsh
 ```
 
-Set you shell. (This may not work on newer versions of OSX.)
+Set your shell
 
-```sh
-chsh -s /bin/zsh
-```
+* Open `System Preferences` -> `Users & Groups`
+* Rick click your user and click `Advanced Options` (You must unlock in the bottom left corner to make settings changes)
+* Then, set you login shell to `/usr/local/bin/zsh`
+* Restart your computer
 
 Next, follow install instructions for Starship.rs
 
