@@ -36,6 +36,8 @@ ln -sf .zshrc.local ~/.zshrc.local
 ln -sf .vimc.local ~/.vimrc.local
 ln -sf .tmux.conf.local ~/.tmux.conf.local
 ln -sf .vimbundle.local ~/.vimbundle.local
+
+mkdir -p ~/.config/nvim/
 ln -sf init.vim ~/config/nvim/init.vim
 ```
 
