@@ -1,33 +1,73 @@
-eval "$(/Users/avogel/hashrocket/dotmatrix/hr/bin/hr init -)"
-
-export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
-
-# Set Android home to Android Studio Dir (installed from package, not brew)
-export ANDROID_HOME=/Users/avogel/Library/Android/sdk
-
-# Fastlane Android Encoding
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-
-# GoLang
-export GOPATH="$HOME/Projects/go"
-export PATH="$PATH:$GOPATH/bin"
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
-# Aliases
-alias ga="git add"
-alias gst="git status"
-alias gsb="git status -sb"
-alias rdm="bundle exec rails db:migrate"
-
-# Starship Prompt
 eval "$(starship init zsh)"
-# Command Syntax Highlighting
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias reload='source ~/.zshrc; echo -e "\n\u2699  \e[33mZSH config reloaded\e[0m \u2699"'
+
+alias hcd="cd ~/Hashrocket"
+
+alias vi="nvim"
+alias vim="nvim"
+
+alias be="bundle exec"
+
+# Git Aliases
+# git reset empty files
+gref() {
+  command git --no-pager diff --cached --stat | command grep "|\s*0$" | awk '{system("command git reset " $1)}'
+}
+
+alias ga="git add"
+alias gap="git add -p"
+alias gnap='git add -N --ignore-removal . && gap && gref'
+alias gc='git commit -v'
+alias gco="git checkout"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias gpr="git pull --rebase"
+alias gp="git push"
+alias glod="git log --oneline --decorate"
+alias gst="git status"
+# this should go in gitconfig - cheddar='git commit --amend --no-edit'
+
+# ls Aliases
+alias ls="ls -G"
+alias ll="ls -lG"
+
+# rails
+alias groutes="bundle exec rails routes | grep"
+
+autoload -U compinit; compinit
+
+# Completion for kill-like commands
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+zstyle ':completion:*:ssh:*' tag-order hosts users
+zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
+
+# ignore completion functions (until the _ignored completer)
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zshcache
+
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# default apps
+(( ${+PAGER}   )) || export PAGER='less'
+(( ${+EDITOR}  )) || export EDITOR='nvim'
+export PSQL_EDITOR='nvim -c"setf sql"'
+
+# ZSH syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# remove duplicates in $PATH
+typeset -aU path
+
+. $(brew --prefix asdf)/asdf.sh
+
+bindkey '^R' history-incremental-search-backward
+bindkey -e # for ctrl+e & ctrl+a
