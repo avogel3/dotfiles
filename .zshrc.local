@@ -1,11 +1,9 @@
 eval "$(starship init zsh)"
 
-alias reload='source ~/.zshrc; echo -e "\n\u2699  \e[33mZSH config reloaded\e[0m \u2699"'
-
-alias hcd="cd ~/Hashrocket"
-
 alias vi="nvim"
 alias vim="nvim"
+
+alias hcd="cd ~/Hashrocket"
 
 alias be="bundle exec"
 
@@ -35,39 +33,7 @@ alias ll="ls -lG"
 # rails
 alias groutes="bundle exec rails routes | grep"
 
-autoload -U compinit; compinit
-
-# Completion for kill-like commands
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
-zstyle ':completion:*:ssh:*' tag-order hosts users
-zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
-
-# ignore completion functions (until the _ignored completer)
-zstyle ':completion:*:functions' ignored-patterns '_*'
-
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zshcache
-
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=10000
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
-
-# default apps
-(( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='nvim'
-export PSQL_EDITOR='nvim -c"setf sql"'
-
 # ZSH syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# remove duplicates in $PATH
-typeset -aU path
-
-. $(brew --prefix asdf)/asdf.sh
-
-bindkey '^R' history-incremental-search-backward
-bindkey -e # for ctrl+e & ctrl+a
+. $(brew --prefix asdf)/libexec/asdf.sh

@@ -32,6 +32,7 @@ Next, follow install instructions for Starship.rs
 Then Symlink your dotfiles
 
 ```sh
+ln -sf .zshrc ~/.zshrc
 ln -sf .zshrc.local ~/.zshrc.local
 ln -sf .vimc.local ~/.vimrc.local
 ln -sf .tmux.conf.local ~/.tmux.conf.local
