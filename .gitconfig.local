@@ -1,0 +1,2 @@
+[alias]
+        fco=!git branch | fzf | xargs git checkout

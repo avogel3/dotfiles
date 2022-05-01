@@ -105,6 +105,10 @@ class Dotfile
     FileUtils.ln_sf(abs_path(file), abs_path(target_path))
   end
 
+  def rm(files)
+    FileUtils.rm(Array(files).map { |f| abs_path(f) })
+  end
+
   def abs_path(rel_path)
     File.expand_path(rel_path, __dir__)
   end
@@ -139,7 +143,7 @@ class NvimConfigInstaller < Dotfile
     puts 'Uninstalling nvim config...'.brown
     return unless File.symlink?(abs_path(INIT_VIM_TARGET))
 
-    FileUtils.rm([abs_path(INIT_VIM_TARGET)])
+    rm(INIT_VIM_TARGET)
   end
 end
 
@@ -152,7 +156,7 @@ class ZshRcInstaller < Dotfile
 
   def uninstall
     puts 'Uninstalling zsh config...'.brown
-    FileUtils.rm([abs_path('~/.zshrc'), abs_path('~/.zshrc.local')])
+    rm(['~/.zshrc', '~/.zshrc.local'])
   end
 end
 
@@ -164,6 +168,20 @@ class AckRcInstaller < Dotfile
 
   def uninstall
     puts 'Uninstalling ack config...'.brown
-    FileUtils.rm([abs_path('~/.ackrc')])
+    rm(['~/.ackrc'])
+  end
+end
+
+class GitConfigInstaller < Dotfile
+  def install
+    puts 'Installing git config...'.cyan
+    symlink('./.gitconfig', '~/.gitconfig')
+    symlink('./.gitconfig.local', '~/.gitconfig.local')
+    symlink('./.gitignore', '~/.gitignore')
+  end
+
+  def uninstall
+    puts 'Uninstalling git config...'.brown
+    rm(['~/.gitconfig', '~/.gitconfig.local', '~/.gitignore'])
   end
 end
