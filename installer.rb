@@ -133,3 +133,15 @@ class GitConfigInstaller < Dotfile
     rm(['~/.gitconfig', '~/.gitconfig.local', '~/.gitignore'])
   end
 end
+
+class TmuxConfigInstaller < Dotfile
+  def install
+    puts 'Installing tmux config...'.cyan
+    symlink('./.tmux.conf', '~/.tmux.conf')
+  end
+
+  def uninstall
+    puts 'Uninstalling git config...'.brown
+    rm('~/.tmux.conf')
+  end
+end
