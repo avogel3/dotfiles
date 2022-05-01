@@ -24,11 +24,11 @@ alias gpr="git pull --rebase"
 alias gp="git push"
 alias glod="git log --oneline --decorate"
 alias gst="git status"
-# this should go in gitconfig - cheddar='git commit --amend --no-edit'
 
 # ls Aliases
 alias ls="ls -G"
 alias ll="ls -lG"
+alias la="ls -lart"
 
 # rails
 alias groutes="bundle exec rails routes | grep"

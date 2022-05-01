@@ -102,9 +102,7 @@ class Dotfile
   protected
 
   def symlink(file, target_path)
-    file_path = File.expand_path(file, __dir__)
-    target_path = File.expand_path(target_path, __dir__)
-    FileUtils.ln_sf(file_path, target_path)
+    FileUtils.ln_sf(abs_path(file), abs_path(target_path))
   end
 
   def abs_path(rel_path)
@@ -142,5 +140,18 @@ class NvimConfigInstaller < Dotfile
     return unless File.symlink?(abs_path(INIT_VIM_TARGET))
 
     FileUtils.rm([abs_path(INIT_VIM_TARGET)])
+  end
+end
+
+class ZshRcInstaller < Dotfile
+  def install
+    puts 'Installing zsh config...'.cyan
+    symlink('./.zshrc', '~/.zshrc')
+    symlink('./.zshrc.local', '~/.zshrc.local')
+  end
+
+  def uninstall
+    puts 'Uninstalling zsh config...'.brown
+    FileUtils.rm([abs_path('~/.zshrc'), abs_path('~/.zshrc.local')])
   end
 end
