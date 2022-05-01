@@ -75,4 +75,9 @@ let g:startify_bookmarks = ['~/.zshrc', '~/.config/nvim/init.vim', '~/.ackrc']
 
 colorscheme purify
 
-let g:lightline = { 'colorscheme': 'purify' }
+let g:lightline = {
+                \ 'colorscheme': 'purify',
+                \ 'active': {
+                \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
+                \ }
+                \ }
