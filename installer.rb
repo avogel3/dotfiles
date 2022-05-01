@@ -117,10 +117,12 @@ module Dotfiles
 
   def install!
     Dotfile.descendants.each { |i| i.new.install }
+    puts 'Done'.green
   end
 
   def uninstall!
     Dotfile.descendants.each { |i| i.new.uninstall }
+    puts 'Done'.green
   end
 end
 
@@ -128,6 +130,7 @@ class NvimConfigInstaller < Dotfile
   INIT_VIM_TARGET = '~/.config/nvim/init.vim'.freeze
 
   def install
+    puts 'Installing nvim config...'.cyan
     nvim_config_dir = abs_path('~/.config/nvim')
     FileUtils.mkdir_p(nvim_config_dir)
 
@@ -135,6 +138,7 @@ class NvimConfigInstaller < Dotfile
   end
 
   def uninstall
+    puts 'Uninstalling nvim config...'.brown
     return unless File.symlink?(abs_path(INIT_VIM_TARGET))
 
     FileUtils.rm([abs_path(INIT_VIM_TARGET)])
