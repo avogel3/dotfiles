@@ -1,0 +1,18 @@
+# Search unknown file-types
+--type-set=coffee=.coffee
+--type-set=cucumber=.feature
+--type-set=haml=.haml
+--type-set=sass=.sass,.scss
+
+# Do not search these directories for quicker lookup
+--ignore-dir=log
+--ignore-dir=tags
+--ignore-dir=tmp
+--ignore-dir=node_modules
+--ignore-dir=.next
+--ignore-dir=deps
+--ignore-dir=public/assets
+--ignore-dir=app/assets/builds/
+--ignore-dir=public/packs
+--ignore-dir=public/packs-test
+

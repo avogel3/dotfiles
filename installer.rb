@@ -155,3 +155,15 @@ class ZshRcInstaller < Dotfile
     FileUtils.rm([abs_path('~/.zshrc'), abs_path('~/.zshrc.local')])
   end
 end
+
+class AckRcInstaller < Dotfile
+  def install
+    puts 'Installing ack config...'.cyan
+    symlink('./.ackrc', '~/.ackrc')
+  end
+
+  def uninstall
+    puts 'Uninstalling ack config...'.brown
+    FileUtils.rm([abs_path('~/.ackrc')])
+  end
+end
