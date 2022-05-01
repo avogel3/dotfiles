@@ -1,4 +1,4 @@
-![](https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+![](https://source.unsplash.com/iar-afB0QQw/1000x350)
 
 Dotfiles
 ===
@@ -7,7 +7,7 @@ Hey 👋
 
 This is where I push my dotfiles so that I have a backup. If you see something you link feel free to "smash that star button". 
 
-My config is largely influenced my experience using the [dotmatrix](https://github.com/Hashrocket/dotmatrix) project by [Hashrocket](https://github.com/Hashrocket). In this repo, you'll definitely see someplaces where I borrowed from their config.
+My config is largely influenced from my experience using the [dotmatrix](https://github.com/Hashrocket/dotmatrix) project by [Hashrocket](https://github.com/Hashrocket). In this repo, you'll definitely see someplaces where I borrowed from their config.
 
 Anyways, thanks for stopping by. 
 
