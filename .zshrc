@@ -38,4 +38,6 @@ zrcl="$HOME/.zshrc.local"
 # remove duplicates in $PATH
 typeset -aU path
 
+bindkey -e
+
 command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh 
