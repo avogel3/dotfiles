@@ -59,6 +59,7 @@ Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'jparise/vim-graphql'
 Plug 'elixir-editors/vim-elixir'
 Plug 'itchyny/lightline.vim'
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 call plug#end()
 

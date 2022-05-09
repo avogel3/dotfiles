@@ -25,6 +25,8 @@ alias gp="git push"
 alias glod="git log --oneline --decorate"
 alias gst="git status"
 
+alias mdg="mix deps.get"
+
 # ls Aliases
 alias ls="ls -G"
 alias ll="ls -lG"
