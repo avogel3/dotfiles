@@ -64,6 +64,8 @@ Plug 'jparise/vim-graphql'
 Plug 'elixir-editors/vim-elixir'
 Plug 'itchyny/lightline.vim'
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'windwp/nvim-spectre'
 
 call plug#end()
 
@@ -72,6 +74,16 @@ let g:turbux_command_prefix = 'bundle exec'
 iabbr bpry require'pry';binding.pry
 
 nnoremap <leader>p :GFiles<CR>
+
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+
+" spectre keybindings
+" search current word
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
+""  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+" run command :Spectre
 
 " Shift + Tab
 inoremap <S-Tab> <C-d>
