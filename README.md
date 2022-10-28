@@ -7,7 +7,7 @@ Hey 👋
 
 This is where I push my dotfiles so that I have a backup. If you see something you link feel free to "smash that star button". 
 
-My config is largely influenced from my experience using the [dotmatrix](https://github.com/Hashrocket/dotmatrix) project by [Hashrocket](https://github.com/Hashrocket). In this repo, you'll definitely see someplaces where I borrowed from their config.
+My config has been influenced by my experience using [dotmatrix](https://github.com/Hashrocket/dotmatrix). In this repo, you'll definitely see someplaces where I borrowed from their config.
 
 Anyways, thanks for stopping by. 
 
@@ -18,7 +18,9 @@ Anyways, thanks for stopping by.
 * **Prompt:** [starship](https://starship.rs)
 * **Editor:** [neovim](https://github.com/neovim/neovim)
 * **Vim-Plugins:** [vim-plug](https://github.com/junegunn/vim-plug)
-* **iTerm Theme:** [iterm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
+* **iTerm Themes:**
+  * [iterm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
+  * [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme/blob/master/tokyo-night.itermcolors)
 
 ### Installation
 

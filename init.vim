@@ -66,6 +66,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'windwp/nvim-spectre'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -90,7 +91,8 @@ inoremap <S-Tab> <C-d>
 
 let g:startify_bookmarks = ['~/.zshrc', '~/.config/nvim/init.vim', '~/.ackrc']
 
-colorscheme purify
+" Other options include - purify
+colorscheme tokyonight-night
 
 let g:lightline = {
                 \ 'colorscheme': 'purify',
