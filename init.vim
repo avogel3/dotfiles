@@ -28,6 +28,10 @@ autocmd FileType typescript setlocal sw=2 ts=2 sts=2
 nnoremap <C-h>   :tabpre<CR>
 nnoremap <C-l>   :tabnext<CR>
 
+" find and replace convenience from Dorian who got it from Vidal
+nmap <Leader>k :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+vmap <Leader>k y :%s/<C-r>"//gc<Left><Left><Left>
+
 " Turn on :FZF
 set rtp+=/usr/local/opt/fzf
 
