@@ -71,6 +71,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
+lua require('config')
+
 let g:turbux_command_prefix = 'bundle exec'
 
 iabbr bpry require'pry';binding.pry
