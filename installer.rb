@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'pathname'
 
 class String
   def black
@@ -77,21 +78,30 @@ module Dotfiles
 end
 
 class NvimConfigInstaller < Dotfile
-  INIT_VIM_TARGET = '~/.config/nvim/init.vim'.freeze
+  NVIM_CONFIG_DIR = '~/.config/nvim'.freeze
+
+  def config_files
+    [
+      "init.vim",
+      "lua"
+    ]
+  end
 
   def install
     puts 'Installing nvim config...'.cyan
-    nvim_config_dir = abs_path('~/.config/nvim')
-    FileUtils.mkdir_p(nvim_config_dir)
+    FileUtils.mkdir_p(abs_path(NVIM_CONFIG_DIR))
 
-    symlink('./init.vim', INIT_VIM_TARGET)
+    config_files.each do |fd|
+      symlink(abs_path("./config/nvim/#{fd}"), abs_path(Pathname.new(NVIM_CONFIG_DIR).join(fd)))
+    end
   end
 
   def uninstall
     puts 'Uninstalling nvim config...'.brown
-    return unless File.symlink?(abs_path(INIT_VIM_TARGET))
 
-    rm(INIT_VIM_TARGET)
+    rm(config_files.map do |fd|
+      abs_path(Pathname.new(NVIM_CONFIG_DIR).join(fd))
+    end)
   end
 end
 
