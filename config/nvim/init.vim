@@ -72,6 +72,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 lua require('config')
+lua require('coc-mappings')
 
 let g:turbux_command_prefix = 'bundle exec'
 
