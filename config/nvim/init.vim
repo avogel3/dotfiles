@@ -93,7 +93,12 @@ nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 " Shift + Tab
 inoremap <S-Tab> <C-d>
 
-let g:startify_bookmarks = ['~/.zshrc', '~/.config/nvim/init.vim', '~/.ackrc']
+let g:startify_bookmarks = [
+        \ '~/.zshrc',
+        \ '~/.config/nvim/init.vim',
+        \ '~/.ackrc',
+        \ '~/.config/alacritty/alacritty.yml'
+        \ ]
 
 " Other options include - purify
 colorscheme tokyonight-night

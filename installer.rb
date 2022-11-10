@@ -105,6 +105,22 @@ class NvimConfigInstaller < Dotfile
   end
 end
 
+class AlacrittyConfigInstaller < Dotfile
+  CONFIG_DIR = '~/.config'.freeze
+
+  def install
+    puts 'Installing alacritty config...'.cyan
+
+    symlink(abs_path("./config/alacritty"), abs_path(Pathname.new(CONFIG_DIR)))
+  end
+
+  def uninstall
+    puts 'Uninstalling alacritty config...'.brown
+
+    rm(abs_path(Pathname.new(CONFIG_DIR).join("alacritty")))
+  end
+end
+
 class ZshRcInstaller < Dotfile
   def install
     puts 'Installing zsh config...'.cyan
