@@ -24,6 +24,7 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2
 autocmd FileType javascript setlocal sw=2 ts=2 sts=2
 autocmd FileType typescript setlocal sw=2 ts=2 sts=2
+au BufNewFile,BufRead Brewfile,.Brewfile set filetype=ruby syntax=brewfile
 
 nnoremap <C-h>   :tabpre<CR>
 nnoremap <C-l>   :tabnext<CR>
