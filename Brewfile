@@ -1,13 +1,14 @@
 tap 'homebrew/cask-fonts'
 
-brew 'zsh'
 brew 'asdf'
-brew 'starship'
 brew 'fzf'
 brew 'neovim'
 brew 'rg'
-brew 'watchman'
+brew 'starship'
 brew 'the_silver_searcher'
+brew 'tmux'
+brew 'watchman'
+brew 'zsh'
 
 cask 'alacritty'
 cask 'font-fira-code'
