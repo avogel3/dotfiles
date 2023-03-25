@@ -8,3 +8,15 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+-- lualine
+require('lualine').setup {
+  sections = {
+    lualine_c = {
+      {
+        'buffers',
+        show_filename_only = false
+      }
+    }
+  }
+}
