@@ -63,7 +63,6 @@ Plug 'digitaltoad/vim-pug'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'jparise/vim-graphql'
 Plug 'elixir-editors/vim-elixir'
-Plug 'itchyny/lightline.vim'
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'windwp/nvim-spectre'
@@ -94,22 +93,15 @@ nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 " Shift + Tab
 inoremap <S-Tab> <C-d>
 
+" Other options include - purify
+colorscheme tokyonight-night
+
 let g:startify_bookmarks = [
         \ '~/.zshrc',
         \ '~/.config/nvim/init.vim',
         \ '~/.ackrc',
         \ '~/.config/alacritty/alacritty.yml'
         \ ]
-
-" Other options include - purify
-colorscheme tokyonight-night
-
-let g:lightline = {
-                \ 'colorscheme': 'purify',
-                \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'relativepath', 'modified' ] ]
-                \ }
-                \ }
 
 let g:startify_custom_header = [
        \ '    ______                   _         __  __                      _           __   __   _ ____          ',
