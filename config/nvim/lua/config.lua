@@ -1,6 +1,25 @@
 -- NVIM Tree Sitter
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "lua", "eex", "heex", "elixir", "ruby", "html" },
+  ensure_installed = {
+    "lua",
+    "eex",
+    "heex",
+    "elixir",
+    "ruby",
+    "html",
+    "sql",
+    "css",
+    "json",
+    "graphql",
+    "go",
+    "erlang",
+    "javascript",
+    "typescript",
+    "jsdoc",
+    "scss",
+    "toml",
+    "yaml"
+  },
   highlight = {
     enable = true
   },
