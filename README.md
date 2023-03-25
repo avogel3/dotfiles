@@ -5,11 +5,11 @@ Dotfiles
 
 Hey 👋
 
-This is where I push my dotfiles so that I have a backup. If you see something you link feel free to "smash that star button". 
+This is where I push my dotfiles so that I have a backup. If you see something you link feel free to smash the star button. 
 
-My config has been influenced by my experience using [dotmatrix](https://github.com/Hashrocket/dotmatrix). In this repo, you'll definitely see someplaces where I borrowed from their config.
+My config has been influenced by my experience using [dotmatrix](https://github.com/Hashrocket/dotmatrix). In this repo, you'll definitely see someplaces where I borrowed from that config.
 
-Anyways, thanks for stopping by. 
+Recently, I've migrated towards a NVIM focused setup. I used kickstart.nvim as a srping board and merged much of my existing config with some of the nice things there.
 
 ### Notable Packages
 
@@ -17,9 +17,8 @@ Anyways, thanks for stopping by.
 * **Shell Syntax Highlighting:** [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * **Prompt:** [starship](https://starship.rs)
 * **Editor:** [neovim](https://github.com/neovim/neovim)
-* **Vim-Plugins:** [vim-plug](https://github.com/junegunn/vim-plug)
-* **iTerm Themes:**
-  * [iterm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
+* **Vim-Plugins:** [lazy.nvim](https://github.com/folke/lazy.nvim)
+* **iTerm Theme:**
   * [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme/blob/master/tokyo-night.itermcolors)
 
 ### Installation
@@ -45,12 +44,12 @@ This will symlink the dotfiles in this repo to their correct location. Note that
 rake install
 ```
 
-#### Install Vim Plugins
+#### Install NVIM Plugins
 
-From within NVIM run the vim-plug installation command: 
+If it's your first time running NVIM with this config, lazy will automatically install all the plugins. However, you can install them yourself with the following
 
 ```
-:PlugInstall
+:LazyInstall
 ```
 
 ### Uninstall the dotfiles
@@ -64,4 +63,4 @@ rake uninstall
 
 ##### Andrew Vogel
 
-> Fear is the mind killer
+> Fear Is The Mind Killer

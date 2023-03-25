@@ -82,7 +82,7 @@ class NvimConfigInstaller < Dotfile
 
   def config_files
     [
-      "init.vim",
+      "init.lua",
       "lua"
     ]
   end
