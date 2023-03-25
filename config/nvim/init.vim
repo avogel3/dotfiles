@@ -50,7 +50,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'aliou/sql-heredoc.vim'
 Plug 'rondale-sc/vim-spacejam'
 Plug 'jgdavey/vim-turbux', {'branch': 'main'}
@@ -63,18 +62,22 @@ Plug 'digitaltoad/vim-pug'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'jparise/vim-graphql'
 Plug 'elixir-editors/vim-elixir'
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'windwp/nvim-spectre'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
 lua require('config')
-lua require('coc-mappings')
+lua require('mason-config')
+lua require('lsp')
 
 let g:turbux_command_prefix = 'bundle exec'
 
