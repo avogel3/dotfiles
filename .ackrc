@@ -16,4 +16,5 @@
 --ignore-dir=public/packs
 --ignore-dir=public/packs-test
 --ignore-dir=coverage
+--ignore-dir=.elixir_ls
 
