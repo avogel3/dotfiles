@@ -15,4 +15,5 @@
 --ignore-dir=app/assets/builds/
 --ignore-dir=public/packs
 --ignore-dir=public/packs-test
+--ignore-dir=coverage
 
