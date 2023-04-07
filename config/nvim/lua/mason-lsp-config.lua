@@ -1,7 +1,7 @@
 local mason_lspconfig = require 'mason-lspconfig'
 local lsp_format = require 'lsp-format'
 
-lsp_format.setup({ exclude = { 'ruby_ls', 'solargraph' } })
+lsp_format.setup({ exclude = { 'ruby_ls', 'solargraph', 'rubocop' } })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -69,7 +69,10 @@ local servers = {
   },
   marksman = {},
   standardrb = {},
-  solargraph = {},
+  solargraph = {
+    formatting = false,
+    diagnostics = false,
+  },
   rust_analyzer = {},
   tsserver = {},
   vimls = {},
@@ -92,7 +95,7 @@ require("mason").setup({
   }
 })
 
-mason_lspconfig.setup{
+mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers)
 }
 
