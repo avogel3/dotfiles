@@ -40,10 +40,21 @@ require('lazy').setup({
   'tpope/vim-rails',
   'tpope/vim-vinegar',
   'aliou/sql-heredoc.vim',
+  'mileszs/ack.vim',
+
+  {
+    -- Test Runner
+    'jgdavey/vim-turbux',
+    dependencies = {
+      { 'jgdavey/tslime.vim', branch = 'main' }
+    },
+    branch = 'main'
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
