@@ -23,8 +23,8 @@ setopt INC_APPEND_HISTORY
 
 # default apps
 (( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='vim'
-export PSQL_EDITOR='vim -c"setf sql"'
+(( ${+EDITOR}  )) || export EDITOR='nvim'
+export PSQL_EDITOR='nvim -c"setf sql"'
 
 # Aliases
 # * Additional aliases are found in `.sharedrc`
