@@ -314,6 +314,9 @@ vim.diagnostic.config({
   },
 })
 
+-- Find and Replace (Dorian and Vidal)
+vim.keymap.set('n', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
+
 pcall(require('mason-lsp-config'))
 pcall(require('nvim-cmp-config'))
 
