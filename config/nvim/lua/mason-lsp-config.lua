@@ -60,6 +60,7 @@ end
 local servers = {
   cssls = {},
   graphql = {},
+  eslint = {},
   html = {},
   lua_ls = {
     Lua = {
