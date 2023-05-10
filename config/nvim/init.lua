@@ -118,7 +118,9 @@ require('lazy').setup({
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
     opts = {
       options = {
         theme = 'tokyonight',
@@ -173,7 +175,7 @@ require('lazy').setup({
   {
     'goolord/alpha-nvim',
     dependencies = {
-      'kyazdani42/nvim-web-devicons'
+      'nvim-tree/nvim-web-devicons'
     },
     config = function()
       require 'alpha'.setup(require 'alpha.themes.startify'.config)
@@ -197,6 +199,19 @@ require('lazy').setup({
       })
     end,
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'folke/trouble.nvim',
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    }
   },
 }, {})
 
@@ -317,6 +332,27 @@ vim.diagnostic.config({
 -- Find and Replace (Dorian and Vidal)
 vim.keymap.set('n', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
 
+-- Trouble Keybindings
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+  { silent = true, noremap = true }
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  { silent = true, noremap = true }
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+  { silent = true, noremap = true }
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+  { silent = true, noremap = true }
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+  { silent = true, noremap = true }
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+  { silent = true, noremap = true }
+)
+
+-- Require other configuration
 pcall(require('mason-lsp-config'))
 pcall(require('nvim-cmp-config'))
 
