@@ -41,7 +41,7 @@ require('lazy').setup({
   'tpope/vim-vinegar',
   'aliou/sql-heredoc.vim',
   'mileszs/ack.vim',
-
+  'rondale-sc/vim-spacejam',
   {
     -- Test Runner
     'jgdavey/vim-turbux',
