@@ -73,7 +73,11 @@ local servers = {
   rust_analyzer = {},
   tsserver = {},
   vimls = {},
-  yamlls = {},
+  yamlls = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
 }
 
 -- Setup neovim lua configuration
