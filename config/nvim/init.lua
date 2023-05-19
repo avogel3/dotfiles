@@ -341,6 +341,7 @@ vim.diagnostic.config({
 
 -- Find and Replace (Dorian and Vidal)
 vim.keymap.set('n', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
+vim.keymap.set('v', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
 
 -- Trouble Keybindings
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
