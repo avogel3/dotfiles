@@ -70,12 +70,6 @@ local servers = {
   },
   marksman = {},
   standardrb = {},
-  solargraph = {
-    solargraph = {
-      formatting = false,
-      diagnostics = false,
-    }
-  },
   rust_analyzer = {},
   tsserver = {},
   vimls = {},
