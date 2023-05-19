@@ -184,21 +184,31 @@ require('lazy').setup({
     end,
   },
   {
-    'mhanberg/elixir.nvim',
-    ft = { "elixir", "eex", "heex", "surface" },
+    "elixir-tools/elixir-tools.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local elixir = require 'elixir'
+      local elixir = require("elixir")
+      local elixirls = require("elixir.elixirls")
 
-      elixir.setup({
-        settings = elixir.settings {
-          dialyzerEnabled = false,
-          enableTestLenses = false,
-        },
-        log_level = vim.lsp.protocol.MessageType.Log,
-        message_level = vim.lsp.protocol.MessageType.Log,
-      })
+      elixir.setup {
+        credo = {},
+        elixirls = {
+          enabled = true,
+          settings = elixirls.settings {
+            dialyzerEnabled = false,
+            enableTestLenses = false,
+          },
+          on_attach = function(client, bufnr)
+            vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
+            vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
+            vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
+          end,
+        }
+      }
     end,
-    dependencies = { 'neovim/nvim-lspconfig', 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
   {
     'folke/trouble.nvim',
