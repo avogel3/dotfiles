@@ -105,19 +105,29 @@ class NvimConfigInstaller < Dotfile
   end
 end
 
+
 class AlacrittyConfigInstaller < Dotfile
-  CONFIG_DIR = '~/.config'.freeze
+  AC_CONFIG_DIR = '~/.config/alacritty'.freeze
+
+  def config_files
+    Dir["./config/alacritty/*.yml"].map { |filepath| File.basename(filepath) }
+  end
 
   def install
     puts 'Installing alacritty config...'.cyan
+    FileUtils.mkdir_p(abs_path(AC_CONFIG_DIR))
 
-    symlink(abs_path("./config/alacritty"), abs_path(Pathname.new(CONFIG_DIR)))
+    config_files.each do |fd|
+      symlink(abs_path("./config/alacritty/#{fd}"), abs_path(Pathname.new(AC_CONFIG_DIR).join(fd)))
+    end
   end
 
   def uninstall
     puts 'Uninstalling alacritty config...'.brown
 
-    rm(abs_path(Pathname.new(CONFIG_DIR).join("alacritty")))
+    rm(config_files.map do |fd|
+      abs_path(Pathname.new(AC_CONFIG_DIR).join(fd))
+    end)
   end
 end
 
