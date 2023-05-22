@@ -9,6 +9,8 @@ brew 'the_silver_searcher'
 brew 'tmux'
 brew 'watchman'
 brew 'zsh'
+brew 'gh'
+brew 'glow'
 
 cask 'alacritty'
 cask 'font-fira-code'
