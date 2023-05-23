@@ -42,7 +42,7 @@ require('lazy').setup({
   'aliou/sql-heredoc.vim',
   'mileszs/ack.vim',
   'rondale-sc/vim-spacejam',
-  'numkil/ag.nvim',
+  'mileszs/ack.vim',
   {
     -- Test Runner
     'jgdavey/vim-turbux',

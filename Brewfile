@@ -14,6 +14,7 @@ brew 'glow'
 brew 'coreutils'
 brew 'curl'
 brew 'git'
+brew 'ack'
 
 cask 'alacritty'
 cask 'font-fira-code'
