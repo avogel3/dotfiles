@@ -119,6 +119,17 @@ mason_lspconfig.setup_handlers {
           }
         },
       }
+    elseif server_name == "eslint" then
+      nvim_lsp.eslint.setup {
+        capabilities = capabilities,
+        settings = servers[server_name],
+        on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      }
     else
       nvim_lsp[server_name].setup {
         capabilities = capabilities,
