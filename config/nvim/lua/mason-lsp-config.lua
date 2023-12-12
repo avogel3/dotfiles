@@ -1,7 +1,12 @@
 local mason_lspconfig = require 'mason-lspconfig'
 local lsp_format = require 'lsp-format'
 
-lsp_format.setup({ exclude = { 'ruby_ls', 'solargraph', 'rubocop' } })
+lsp_format.setup({
+  exclude = {
+    'solargraph',
+    'rubocop',
+  }
+})
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -69,6 +74,7 @@ local servers = {
     },
   },
   marksman = {},
+  solargraph = {},
   standardrb = {},
   rust_analyzer = {},
   tsserver = {},
@@ -102,11 +108,34 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
+    local nvim_lsp = require('lspconfig')
+
+    if server_name == "solargraph" then
+      nvim_lsp.solargraph.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
+        init_options = {
+          formatting = false,
+        },
+        settings = {
+          solargraph = {
+            autoformat = false,
+            diagnostics = false,
+            formatting = false,
+            flags = {
+              debounce_text_changes = 150
+            },
+          }
+        },
+      }
+    else
+      nvim_lsp[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+      }
+    end
   end,
 }
 -- After setting up mason-lspconfig you may set up servers via lspconfig
