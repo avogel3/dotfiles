@@ -14,6 +14,7 @@ require'nvim-treesitter.configs'.setup {
     "graphql",
     "go",
     "erlang",
+    "java",
     "javascript",
     "typescript",
     "jsdoc",
