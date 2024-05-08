@@ -1,2 +1,3 @@
 [alias]
-        fco=!git branch | fzf | xargs git checkout
+        fco=!git branch | fzf --header 'Select a branch to checkout' | xargs git checkout
+        fbd=!git branch --no-color | fzf --header 'Select a branch to delete' -m | xargs -I {} git branch -D '{}'
