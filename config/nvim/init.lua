@@ -410,6 +410,10 @@ vim.bo.softtabstop = 2
 vim.o.splitbelow = true
 vim.o.splitright = true
 
+-- Set timeout for commands
+vim.opt.timeoutlen = 3000
+vim.opt.ttimeoutlen = 100
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
