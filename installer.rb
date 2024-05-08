@@ -110,7 +110,7 @@ class AlacrittyConfigInstaller < Dotfile
   AC_CONFIG_DIR = '~/.config/alacritty'.freeze
 
   def config_files
-    Dir["./config/alacritty/*.yml"].map { |filepath| File.basename(filepath) }
+    Dir["./config/alacritty/*.toml"].map { |filepath| File.basename(filepath) }
   end
 
   def install
