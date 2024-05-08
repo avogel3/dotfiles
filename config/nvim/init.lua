@@ -116,7 +116,18 @@ require('lazy').setup({
     'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
-      vim.cmd [[colorscheme tokyonight-night]]
+      require("tokyonight").setup({
+        style = "storm",
+        transparent = true,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          sidebars = "dark",
+          floats = "dark",
+        },
+      })
+      vim.cmd [[colorscheme tokyonight-storm]]
     end,
   },
 
