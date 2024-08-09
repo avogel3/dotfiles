@@ -99,14 +99,6 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
-    },
-    sections = {
-      lualine_c = {
-        {
-          'buffers',
-          show_filename_only = false
-        }
-      }
     }
   },
 
