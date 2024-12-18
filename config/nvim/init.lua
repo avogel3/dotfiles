@@ -406,6 +406,7 @@ pcall(require('nvim-cmp-config'))
 
 vim.cmd "iabbr bpry require'pry';binding.pry"
 vim.cmd "iabbr imr import React from 'react'"
+vim.cmd "iabbr Rlocals <%# locals: (foo:) -%>"
 
 -- Show tab indentation using spaces
 vim.opt.tabstop = 2
