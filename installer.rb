@@ -83,7 +83,8 @@ class NvimConfigInstaller < Dotfile
   def config_files
     [
       "init.lua",
-      "lua"
+      "lua",
+      "projections_check.rb"
     ]
   end
 
