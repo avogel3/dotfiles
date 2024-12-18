@@ -37,7 +37,6 @@ require('lazy').setup({
   'tpope/vim-sleuth',
   'tpope/vim-surround',
   'tpope/vim-vinegar',
-  'tpope/vim-projectionist',
   'aliou/sql-heredoc.vim',
   'mileszs/ack.vim',
   'rondale-sc/vim-spacejam',
@@ -254,7 +253,8 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons'
     }
   },
-  'tpope/vim-rails',
+  { 'tpope/vim-rails',         lazy = false },
+  { 'tpope/vim-projectionist', lazy = false }
 }, {})
 
 -- [[ Setting options ]]
