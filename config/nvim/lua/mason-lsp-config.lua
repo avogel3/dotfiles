@@ -57,6 +57,7 @@ local servers = {
   graphql = {},
   eslint = {},
   html = {},
+  jsonls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
