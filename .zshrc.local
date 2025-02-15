@@ -40,6 +40,6 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 alias groutes="bundle exec rails routes | grep"
 
 # ZSH syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
