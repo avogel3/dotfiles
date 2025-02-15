@@ -42,4 +42,10 @@ alias groutes="bundle exec rails routes | grep"
 # ZSH syntax highlighting
 source ~/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-. $(brew --prefix asdf)/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
