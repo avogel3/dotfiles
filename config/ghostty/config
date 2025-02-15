@@ -1,0 +1,5 @@
+theme = tokyonight-storm
+font-family = "FiraCode Nerd Font Mono"
+font-thicken = true
+bold-is-bright = true
+maximize = true

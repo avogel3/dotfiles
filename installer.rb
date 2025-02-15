@@ -106,7 +106,6 @@ class NvimConfigInstaller < Dotfile
   end
 end
 
-
 class AlacrittyConfigInstaller < Dotfile
   AC_CONFIG_DIR = '~/.config/alacritty'.freeze
 
@@ -128,6 +127,29 @@ class AlacrittyConfigInstaller < Dotfile
 
     rm(config_files.map do |fd|
       abs_path(Pathname.new(AC_CONFIG_DIR).join(fd))
+    end)
+  end
+end
+
+class GhosttyConfigInstaller < Dotfile
+  CONFIG_DIR = "~/.config/ghostty"
+
+  def config_files
+    Dir["./config/ghostty/*"].map { |filepath| File.basename(filepath) }
+  end
+
+  def install
+    puts "Installing ghostty config...".cyan
+    FileUtils.mkdir_p(abs_path(CONFIG_DIR))
+
+    config_files.each do |fd|
+      symlink(abs_path("./config/ghostty/#{fd}"), abs_path(Pathname.new(CONFIG_DIR).join(fd)))
+    end
+  end
+
+  def uninstall
+    rm(config_files.map do |fd|
+      abs_path(Pathname.new(CONFIG_DIR).join(fd))
     end)
   end
 end
