@@ -23,7 +23,7 @@ Recently, I've migrated towards a NVIM focused setup. I used kickstart.nvim as a
 
 ### Installation
 
-You'll need to install the Homebrew depedencies listed in the [Brewfile](./Brewfile). At the very least, you will need `asdf`, `zsh`, `starship`, `neovim`, and `fzf`
+You'll need to install the Homebrew depedencies listed in the [Brewfile](./Brewfile). At the very least, you will need `mise`, `zsh`, `starship`, `neovim`, and `fzf`
 
 ```shell
 brew bundle
@@ -42,6 +42,16 @@ This will symlink the dotfiles in this repo to their correct location. Note that
 
 ```shell
 rake install
+```
+
+#### Mise Setup
+
+In order to get the mise plugin working, you'll need to do some extra commands that I've yet to automate. These add support for the auto complete functions in zsh.
+
+```
+mise use -g usage
+mkdir -p /opt/homebrew/share/zsh/site-functions
+mise completion zsh  > /opt/homebrew/share/zsh/site-functions/_mise
 ```
 
 #### Install NVIM Plugins
