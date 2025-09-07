@@ -26,6 +26,7 @@ alias glod="git log --oneline --decorate"
 alias gst="git status"
 alias gs="git status" # no more ghostscript
 alias gplease="git push --force-with-lease"
+alias gwip="git add . && git commit -m WIP --no-verify"
 
 alias mdg="mix deps.get"
 
