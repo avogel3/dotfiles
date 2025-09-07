@@ -41,6 +41,7 @@ require('lazy').setup({
   'mileszs/ack.vim',
   'rondale-sc/vim-spacejam',
   'mileszs/ack.vim',
+  'andymass/vim-matchup',
   {
     -- Test Runner
     'jgdavey/vim-turbux',
