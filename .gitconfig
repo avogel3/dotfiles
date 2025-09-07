@@ -53,5 +53,3 @@
        path = ~/.gitconfig.local
 [fetch]
        prune = true
-[user]
-        email = andrewpvogel@gmail.com
