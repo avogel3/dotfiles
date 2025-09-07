@@ -67,6 +67,7 @@ local servers = {
   marksman = {},
   solargraph = {},
   standardrb = {},
+  ruby_lsp = {},
   rust_analyzer = {},
   ts_ls = {},
   vimls = {},
