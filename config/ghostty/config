@@ -1,4 +1,4 @@
-theme = tokyonight-storm
+theme = TokyoNight Storm
 font-family = "FiraCode Nerd Font Mono"
 font-thicken = true
 bold-is-bright = true
