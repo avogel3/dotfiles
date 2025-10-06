@@ -44,7 +44,6 @@ alias groutes="bundle exec rails routes | grep"
 source ~/Projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(mise activate zsh)"
-export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
