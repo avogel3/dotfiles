@@ -38,7 +38,6 @@ require('lazy').setup({
   'tpope/vim-surround',
   'tpope/vim-vinegar',
   'aliou/sql-heredoc.vim',
-  'mileszs/ack.vim',
   'rondale-sc/vim-spacejam',
   'mileszs/ack.vim',
   'andymass/vim-matchup',
