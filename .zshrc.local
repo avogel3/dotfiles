@@ -47,5 +47,3 @@ eval "$(mise activate zsh)"
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
-
-export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
