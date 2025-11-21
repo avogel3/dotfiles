@@ -5,6 +5,8 @@ alias vim="nvim"
 
 alias hcd="cd ~/Hashrocket"
 
+alias pcd="cd ~/Projects"
+
 alias be="bundle exec"
 
 # Git Aliases
