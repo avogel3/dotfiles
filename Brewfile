@@ -20,5 +20,5 @@ brew 'tmux'
 brew 'watchman'
 brew 'zsh'
 
-cask 'alacritty'
 cask 'font-fira-code'
+cask 'ghostty'
