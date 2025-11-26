@@ -1,0 +1,4 @@
+[[session]]
+name = "dotfiles"
+path = "~/Projects/dotfiles"
+startup_command = "tmux split-window -bfh -p 30 -d && nvim ."

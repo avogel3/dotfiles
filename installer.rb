@@ -154,6 +154,29 @@ class GhosttyConfigInstaller < Dotfile
   end
 end
 
+class SeshConfigInstaller < Dotfile
+  CONFIG_DIR = "~/.config/sesh"
+
+  def config_files
+    Dir["./config/sesh/*"].map { |filepath| File.basename(filepath) }
+  end
+
+  def install
+    puts "Installing sesh config...".cyan
+    FileUtils.mkdir_p(abs_path(CONFIG_DIR))
+
+    config_files.each do |fd|
+      symlink(abs_path("./config/sesh/#{fd}"), abs_path(Pathname.new(CONFIG_DIR).join(fd)))
+    end
+  end
+
+  def uninstall
+    rm(config_files.map do |fd|
+      abs_path(Pathname.new(CONFIG_DIR).join(fd))
+    end)
+  end
+end
+
 class ZshRcInstaller < Dotfile
   def install
     puts 'Installing zsh config...'.cyan
