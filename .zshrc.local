@@ -49,3 +49,8 @@ eval "$(mise activate zsh)"
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+
+# load the try script - at this time, you must curl it,
+# instead of homebrew
+# see https://github.com/tobi/try
+eval "$(ruby ~/.local/try.rb init ~/src/tries)"
