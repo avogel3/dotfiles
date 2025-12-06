@@ -4,6 +4,23 @@
 vim.g.mapleader = '\\'
 vim.g.maplocalleader = '\\'
 
+-- Show tab indentation using spaces
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.bo.softtabstop = 2
+
+-- Open splits in a more natural direction
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- Set timeout for commands
+vim.opt.timeoutlen = 3000
+vim.opt.ttimeoutlen = 100
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -380,22 +397,3 @@ pcall(require('check-projections-config'))
 vim.cmd "iabbr bpry require'pry';binding.pry"
 vim.cmd "iabbr imr import React from 'react'"
 vim.cmd "iabbr Rlocals <%# locals: (foo:) -%>"
-
--- Show tab indentation using spaces
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.bo.softtabstop = 2
-
--- Open splits in a more natural direction
-vim.o.splitbelow = true
-vim.o.splitright = true
-
--- Set timeout for commands
-vim.opt.timeoutlen = 3000
-vim.opt.ttimeoutlen = 100
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
-vim.g.turbux_command_prefix = 'bundle exec' -- default: (empty)
