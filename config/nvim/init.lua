@@ -1,4 +1,4 @@
--- Set <space> as the leader key
+-- Set <space> s the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = '\\'
@@ -59,7 +59,6 @@ require('lazy').setup({
   'mileszs/ack.vim',
   'andymass/vim-matchup',
   {
-    -- Test Runner
     'jgdavey/vim-turbux',
     dependencies = {
       { 'jgdavey/tslime.vim', branch = 'main' }
@@ -70,29 +69,39 @@ require('lazy').setup({
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
-    -- LSP Configuration & Plugins
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  }, -- LSP Configuration & Plugins
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason.nvim',
+      'mason-org/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
     },
+    config = function()
+      require("plugins.mason-lspconfig")
+    end
   },
 
+  -- Autocompletion
   {
-    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+      'folke/lazydev.nvim',
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
@@ -101,10 +110,13 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
     },
+    config = function()
+      require("plugins.nvim-cmp")
+    end
   },
 
+  -- Adds git releated signs to the gutter, as well as utilities for managing changes
   {
-    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -119,7 +131,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
     'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
@@ -180,6 +191,7 @@ require('lazy').setup({
     main = 'ibl',
     opts = {},
   },
+  
   --
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -191,6 +203,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
+  -- Go To / Fuzzy Finding
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
@@ -200,9 +213,9 @@ require('lazy').setup({
       require("fzf-lua").setup({})
     end
   },
-
+ 
+  -- Highlight, edit, and navigate code 
   {
-    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -210,20 +223,24 @@ require('lazy').setup({
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
 
-      pcall(require('nvim-treesitter-config'))
+      pcall(require("plugins.nvim-treesitter"))
     end,
   },
+ 
+  -- Startup Screen
   {
     'goolord/alpha-nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
     config = function()
-      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+      require('alpha').setup(require 'alpha.themes.startify'.config)
 
-      pcall(require('alpha-nvim-config'))
+      pcall(require("plugins.alpha-nvim"))
     end,
   },
+
+  -- Elixir Language Tools
   {
     "elixir-tools/elixir-tools.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -253,12 +270,12 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
+  {
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = false },
+  },
 
   {
     'folke/trouble.nvim',
@@ -348,14 +365,12 @@ vim.keymap.set("n", "<leader>p", require('fzf-lua').files, { desc = "Fzf Files" 
 vim.keymap.set("n", "<leader>b", require('fzf-lua').buffers, { desc = "Fzf Buffers" })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 vim.diagnostic.config({
   float = {
-    source = 'always',
+    source = true,
   },
 })
 
@@ -363,37 +378,15 @@ vim.diagnostic.config({
 vim.keymap.set('n', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
 vim.keymap.set('v', "<Leader>k", ":%s/\\<<C-r><C-w>\\>//gc<Left><Left><Left>")
 
--- Trouble Keybindings
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-  { silent = true, noremap = true }
-)
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  { silent = true, noremap = true }
-)
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-  { silent = true, noremap = true }
-)
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  { silent = true, noremap = true }
-)
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  { silent = true, noremap = true }
-)
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  { silent = true, noremap = true }
-)
-
 -- Spectre
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre"
 })
 
--- Require other configuration
-pcall(require('mason-lsp-config'))
-pcall(require('nvim-cmp-config'))
-pcall(require('check-projections-config'))
-
 -- Abbreviations
 vim.cmd "iabbr bpry require'pry';binding.pry"
 vim.cmd "iabbr imr import React from 'react'"
 vim.cmd "iabbr Rlocals <%# locals: (foo:) -%>"
+
+-- Require Anything Else
+pcall(require("core.check-projections"))
