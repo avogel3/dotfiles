@@ -1,4 +1,5 @@
 tap 'homebrew/cask-fonts'
+tap 'tobi/try', 'https://github.com/tobi/try'
 
 brew 'ack'
 brew 'asdf'
@@ -18,6 +19,7 @@ brew 'starship'
 brew 'sesh'
 brew 'the_silver_searcher'
 brew 'tmux'
+brew 'try'
 brew 'watchman'
 brew 'zoxide'
 brew 'zsh'
