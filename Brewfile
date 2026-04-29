@@ -2,7 +2,6 @@ tap 'homebrew/cask-fonts'
 tap 'tobi/try', 'https://github.com/tobi/try'
 
 brew 'ack'
-brew 'asdf'
 brew 'bat'
 brew 'coreutils'
 brew 'curl'
