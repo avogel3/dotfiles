@@ -389,5 +389,8 @@ vim.cmd "iabbr bpry require'pry';binding.pry"
 vim.cmd "iabbr imr import React from 'react'"
 vim.cmd "iabbr Rlocals <%# locals: (foo:) -%>"
 
+-- Turbux
+vim.g.turbux_command_rspec = 'bin/rspec'
+
 -- Require Anything Else
 pcall(require("core.check-projections"))
