@@ -134,6 +134,7 @@ require('lazy').setup({
     'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
         style = "storm",
         transparent = true,
@@ -145,7 +146,7 @@ require('lazy').setup({
           floats = "dark",
         },
       })
-      vim.cmd [[colorscheme tokyonight-storm]]
+      vim.cmd.colorscheme("tokyonight-storm")
     end,
   },
 
