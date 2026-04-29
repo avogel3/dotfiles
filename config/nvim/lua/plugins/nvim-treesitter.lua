@@ -8,6 +8,7 @@ require'nvim-treesitter.configs'.setup {
     "elixir",
     "ruby",
     "html",
+    "liquid",
     "sql",
     "css",
     "json",
