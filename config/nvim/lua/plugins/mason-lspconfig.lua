@@ -114,6 +114,7 @@ local servers = {
   },
   marksman = {},
   ruby_lsp = {
+    cmd = { "mise", "x", "--", "ruby-lsp" },
     settings = {
       init_options = {
         formatter = "standard",
