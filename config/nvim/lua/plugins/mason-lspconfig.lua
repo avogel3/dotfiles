@@ -97,39 +97,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  cssls = {},
-  graphql = {},
-  eslint = {},
-  html = {},
-  jsonls = {},
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-  marksman = {},
-  ruby_lsp = {
-    cmd = { "mise", "x", "--", "ruby-lsp" },
-    settings = {
-      init_options = {
-        formatter = "standard",
-        linters = { "standard" }
-      }
-    }
-  },
-  rust_analyzer = {},
-  standardrb = {},
-  vimls = {},
-  yamlls = {
-    yaml = {
-      keyOrdering = false,
-    },
-  },
+  "cssls",
+  "graphql",
+  "eslint",
+  "html",
+  "jsonls",
+  "lua_ls",
+  "marksman",
+  "ruby_lsp",
+  "rust_analyzer",
+  "standardrb",
+  "stylua",
+  "vimls",
+  "yamlls",
 }
 
 require("mason").setup({
@@ -146,17 +127,10 @@ require("mason").setup({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local ensure_installed = vim.tbl_keys(servers or {})
-vim.list_extend(ensure_installed, {
-  'stylua', -- Used to format Lua code
-})
-
 mason_lspconfig.setup({
-  ensure_installed = ensure_installed,
+  ensure_installed = servers,
 })
 
-for server_name, server_config in pairs(servers) do
-  server_config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_config.capabilities or {})
-  vim.lsp.config(server_name, server_config)
+for _, server_name in ipairs(servers) do
   vim.lsp.enable(server_name)
 end
