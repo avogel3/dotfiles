@@ -50,4 +50,4 @@ eval "$(mise activate zsh)"
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-eval "$(try init ~/src/tries)"
+eval "$(try init)"
