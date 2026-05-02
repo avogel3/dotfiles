@@ -84,6 +84,7 @@ class NvimConfigInstaller < Dotfile
     [
       "init.lua",
       "lua",
+      "after",
       "projections_check.rb"
     ]
   end
