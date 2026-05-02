@@ -218,8 +218,10 @@ require('lazy').setup({
   -- Highlight, edit, and navigate code 
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = "main",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      branch = "main"
     },
     config = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
